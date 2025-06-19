@@ -8,8 +8,8 @@ export async function getAllPosts(): Promise<Post[]> {
       orderBy: {
         createdAt: 'desc'
       }
-      // 确保这里没有传入 null 或 undefined 的参数
     });
+    // 直接返回，不需要类型断言
     return posts;
   } catch (error) {
     console.error('Database connection error:', error);
@@ -25,7 +25,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
         slug: slug
       }
     });
-    return post as Post | null;
+    return post;
   } catch (error) {
     console.error('获取文章失败:', error);
     return null;
@@ -33,9 +33,14 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 }
 
 // 创建新文章
-export async function createPost(data: { title: string; content: string; excerpt: string; slug: string }): Promise<Post> {
+export async function createPost(data: { 
+  title: string; 
+  content: string; 
+  excerpt: string; 
+  slug: string 
+}): Promise<Post> {
   const post = await prisma.post.create({
     data
   });
-  return post as Post;
+  return post;
 }

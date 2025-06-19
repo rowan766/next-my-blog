@@ -8,8 +8,8 @@ const mockPosts: Post[] = [
     title: '我的第一篇博客',
     content: '这是我的第一篇博客内容...',
     excerpt: '欢迎来到我的博客，这里将分享我的学习和生活。',
-    createdAt: '2024-01-15',
-    updatedAt: '2024-01-15',
+    createdAt: new Date('2024-01-15'),
+    updatedAt: new Date('2024-01-15'),
     slug: 'my-first-blog'
   },
   {
@@ -17,8 +17,8 @@ const mockPosts: Post[] = [
     title: 'Next.js 学习笔记',
     content: 'Next.js 是一个很棒的框架...',
     excerpt: '学习 Next.js 的一些心得和技巧分享。',
-    createdAt: '2024-01-20',
-    updatedAt: '2024-01-20',
+    createdAt: new Date('2024-01-20'),
+    updatedAt: new Date('2024-01-20'),
     slug: 'nextjs-learning-notes'
   }
 ];

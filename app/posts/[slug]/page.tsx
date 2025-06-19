@@ -28,7 +28,13 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
 
         <div className="mt-12 pt-8 border-t">
-          <p className="text-gray-600">最后更新：{new Date(post.updatedAt).toLocaleDateString('zh-CN')}</p>
+          <p className="text-gray-600">
+            最后更新: {
+              post.updatedAt 
+                ? new Date(post.updatedAt).toLocaleDateString('zh-CN')
+                : new Date(post.createdAt).toLocaleDateString('zh-CN')
+            }
+          </p>
         </div>
       </div>
     );
